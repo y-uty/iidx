@@ -44,3 +44,12 @@ class CsvUpload(models.Model):
         validators=[FileExtensionValidator(['csv',])],
         )
     created_date = models.DateTimeField(default=timezone.now)
+
+class VersionList(models.Model):
+    ver_no = models.IntegerField()
+    ver_name = models.CharField(max_length=100, null=True)
+    created_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.ver_name
+
