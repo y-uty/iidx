@@ -1,0 +1,71 @@
+{% load static %}
+<html>
+    <head>
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/scoredata.css' %}">
+    </head>
+    <body>
+        <h1>IIDX 登録済スコアデータ閲覧</h1>
+            <h2>アップロード済のCSVデータ</h2>
+            <table  class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>IIDX ID</th>
+                        <th>アップロード日時</th>
+                    </tr>    
+                </thead>
+                <tbody>
+                    {% for uploaded in uploaded_all %} 
+                    <tr>
+                        <td>{{ uploaded.iidx_id }}</td>
+                        <td>{{ uploaded.created_date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+
+            <h2>↓に登録済データを表示します</h2>
+                <table  class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>バージョン</th>
+                            <th>楽曲</th>
+                            <th>ジャンル</th>
+                            <th>アーティスト</th>
+                            <th>譜面</th>
+                            <th>レベル</th>
+                            <th>スコア</th>
+                            <th>PGreat</th>
+                            <th>Great</th>
+                            <th>ミス<br>カウント</th>
+                            <th>クリア<br>タイプ</th>
+                            <th>DJ LEVEL</th>
+                        </tr>    
+                    </thead>
+                    <tbody>
+                        {% for score in score_all %}
+                        <tr>
+                            <td>{{ score.ver_name }}</td>
+                            <td>{{ score.title }}</td>
+                            <td>{{ score.genre }}</td>
+                            <td>{{ score.artist }}</td>
+                            <td>{{ score.difficulty }}</td>
+                            <td>{{ score.level }}</td>
+                            <td>{{ score.score }}</td>
+                            <td>{{ score.pgreat }}</td>
+                            <td>{{ score.great }}</td>
+                            <td>{{ score.misscount }}</td>
+                            <td>{{ score.cleartype }}</td>
+                            <td>{{ score.djlevel }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+    </body>
+</html>

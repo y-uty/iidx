@@ -1,0 +1,15 @@
+table {
+    display: block;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+th {
+    width: 200px;
+    min-width: 100px;
+    text-align: center;
+}
+td {
+    width: 200px;
+    min-width: 100px;
+}

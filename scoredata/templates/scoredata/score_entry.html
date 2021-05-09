@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <head>
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <h1>IIDX スコアデータCSV登録</h1>
+            <h2>CSVのアップロード</h2>
+            <form method="POST" class="csvupload-form" enctype="multipart/form-data">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">アップロード</button>
+            </form>
+            <br>
+            <h2>登録ボタンを押すと登録します</h2>
+            <button type="button" onclick="location.href='{% url 'score_entry_exec' %}'">登録</button>
+    </body>
+</html>
